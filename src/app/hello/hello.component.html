@@ -1,0 +1,27 @@
+<p>This is a custom component</p>
+{{customMessage}}
+<!--{{exprMethod()}}-->  <!--dont use functions in expressions-->
+
+
+<!--<input type="text" [value]="textVal"/>-->
+<input type="text" [(ngModel)]="textVal"/>
+{{textVal}}
+
+<button (click)="callOp()">New</button>
+
+
+<div>
+  <table>
+    <tr>
+      <td>SL No</td>
+      <td>Name</td>
+      <td>ID</td>
+    </tr>
+    <tr *ngFor="let employee of employees; let i = index; let evenRec = even; let oddRec = odd"
+        [ngClass]="{odd: oddRec, even: evenRec}">
+      <td>{{i+1}}</td>
+      <td>{{employee.name}}</td>
+      <td>{{employee.id}}</td>
+    </tr>
+  </table>
+</div>

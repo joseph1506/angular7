@@ -12,11 +12,16 @@ function log(target, name, descriptor) {
   return descriptor;
 }
 
+function classDeco(className) {
+  console.log(className);
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+@classDeco
 export class AppComponent {
   title = 'AngularIntro';
 
