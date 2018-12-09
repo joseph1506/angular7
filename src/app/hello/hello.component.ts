@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {RecordsService} from '../records.service';
 
 @Component({
   selector: 'app-hello',
@@ -6,15 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hello.component.css']
 })
 export class HelloComponent implements OnInit {
+  private employees: {};
 
-  constructor() { }
+  constructor(private myService: RecordsService) {
+  }
 
   customMessage = 'Get out of here';
   i = 0;
   textVal = 'aewrr';
 
 
-  employees = [
+  /*employees = [
     {
       name : 'Joseph',
       id : '007'
@@ -27,7 +30,7 @@ export class HelloComponent implements OnInit {
       name: 'Donna',
       id: '2322'
     }
-  ];
+  ];*/
 
   exprMethod() {
     // console.log(`Called ${this.i++} times`);
@@ -38,6 +41,10 @@ export class HelloComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.myService.getEmployeeData()
+      .subscribe(data => {
+        this.employees = data;
+      });
   }
 
 }
