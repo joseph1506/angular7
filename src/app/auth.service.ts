@@ -5,6 +5,7 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class AuthService {
+  private loggedInStatus = false;
 
   constructor(private http: HttpClient) {
   }
@@ -14,5 +15,13 @@ export class AuthService {
       username: username,
       password: password
     });
+  }
+
+  setLoggedInStatus(value: boolean) {
+    this.loggedInStatus = value;
+  }
+
+  get isLoggedIn() {
+    return this.loggedInStatus;
   }
 }
