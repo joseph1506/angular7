@@ -11,7 +11,7 @@ export class AuthService {
   }
 
   getUserDetails(username, password) {
-    return this.http.post('/api/authenticate', {
+    return this.http.post('/api/login', {
       username: username,
       password: password
     });

@@ -3,7 +3,7 @@
 </p>
   <!--<a routerLink="/office">Go to office</a>-->\
   <ul>
-    <li><a routerLink="/login">Login</a></li>
-    <li><a routerLink="/admin">Go to Admin</a></li>
+    <!--<li ng-if="!authenticated()"><a routerLink="/login">Login</a></li>-->
+    <li ng-if="authenticated()"><a routerLink="/admin">Go to Admin</a></li>
   </ul>
 
