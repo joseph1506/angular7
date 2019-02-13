@@ -15,6 +15,6 @@ export class HomeComponent implements OnInit {
 
   authenticated() {
     console.log('this--->', this.authService.isLoggedIn);
-    return this.authService.isLoggedIn;
+    return this.authService.loggedInStatus;
   }
 }

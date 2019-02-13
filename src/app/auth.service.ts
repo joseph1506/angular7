@@ -1,13 +1,14 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private loggedInStatus = false;
+  loggedInStatus = false;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
   }
 
   getUserDetails(username, password) {
@@ -24,4 +25,15 @@ export class AuthService {
   get isLoggedIn() {
     return this.loggedInStatus;
   }
+
+  logout() {
+    console.log('inside logout');
+    this.http.post('/api/logout', {})
+      .subscribe(data => {
+        this.loggedInStatus = false;
+        this.router.navigateByUrl('login');
+      });
+  }
+
+
 }

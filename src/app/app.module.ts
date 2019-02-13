@@ -31,7 +31,13 @@ import {AuthGuard} from './auth.guard';
     RouterModule.forRoot([
       {
         path: '',
-        component: HomeComponent
+        component: HomeComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'home',
+        component: HomeComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'office',

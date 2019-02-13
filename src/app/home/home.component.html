@@ -1,9 +1,9 @@
-<p>
+<div *ngIf="authenticated()">
   home works!
-</p>
+</div>
   <!--<a routerLink="/office">Go to office</a>-->\
   <ul>
-    <!--<li ng-if="!authenticated()"><a routerLink="/login">Login</a></li>-->
-    <li ng-if="authenticated()"><a routerLink="/admin">Go to Admin</a></li>
+    <li *ngIf="!authenticated()"><a routerLink="/login">Login</a></li>
+    <li *ngIf="authenticated()"><a routerLink="/admin">Go to Admin</a></li>
   </ul>
 

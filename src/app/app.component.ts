@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {AuthService} from './auth.service';
 
-function log(target, name, descriptor) {
+/*function log(target, name, descriptor) {
   // console.log(target, name, descriptor);
   const original = descriptor.value;
   descriptor.value = function (...args) {
@@ -14,25 +15,27 @@ function log(target, name, descriptor) {
 
 function classDeco(className) {
   console.log(className);
-}
+}*/
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-@classDeco
+/*@classDeco*/
 export class AppComponent {
   title = 'AngularIntro';
 
-  constructor() {
-    console.log(this.simpleMethod(5));
+  constructor(private authService: AuthService) {
   }
 
-  @log
+  /*@log
   simpleMethod(a) {
     return a * a;
-  }
+  }*/
 
+  logout() {
+    this.authService.logout();
+  }
 
 }
