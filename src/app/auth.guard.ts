@@ -23,12 +23,12 @@ export class AuthGuard implements CanActivate {
     } else {
       return this.user.getLoggedInUser().pipe(map(res => {
         console.log('res--->', res);
-        if (res.status) {
+        if (res) {
           this.auth.loggedInStatus = true;
         } else {
           this.router.navigateByUrl('login');
         }
-        return res.status;
+        return res;
       }));
     }
   }

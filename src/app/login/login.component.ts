@@ -20,10 +20,7 @@ export class LoginComponent implements OnInit {
 
   loginUser(event) {
     event.preventDefault();
-    console.log('username-->', this.username);
-    console.log('password-->', this.password);
     this.authService.getUserDetails(this.username, this.password).subscribe((data: any) => {
-      console.log('data--->', data);
       if (data.success) {
         this.router.navigate(['admin']);
         this.authService.setLoggedInStatus(true);

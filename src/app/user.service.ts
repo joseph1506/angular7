@@ -16,8 +16,12 @@ export class UserService {
   }
 
 
-  getLoggedInUser(): Observable<isLoggedIn> {
-    return this.http.get<isLoggedIn>('/api/username');
+  getLoggedInUser(): Observable<boolean> {
+    return this.http.get<boolean>('/api/username');
+  }
+
+  logout() {
+    return this.http.get('/api/logout');
   }
 
 }
