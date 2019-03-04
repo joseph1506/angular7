@@ -4,7 +4,11 @@ import {Observable} from 'rxjs';
 
 
 interface isLoggedIn {
-  status: boolean
+  status: boolean;
+}
+
+interface Response {
+  status: boolean;
 }
 
 @Injectable({
@@ -22,6 +26,12 @@ export class UserService {
 
   logout() {
     return this.http.get('/api/logout');
+  }
+
+  registerUser(username, password) {
+    return this.http.post<Response>('/api/register',
+      {username, password}
+    );
   }
 
 }
