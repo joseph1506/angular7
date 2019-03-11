@@ -10,13 +10,17 @@ import {HelloComponent} from './hello/hello.component';
 import {RecordsService} from './records.service';
 import {HomeComponent} from './home/home.component';
 import {OfficeComponent} from './office/office.component';
-import { LoginComponent } from './login/login.component';
-import { AdminComponent } from './admin/admin.component';
+import {LoginComponent} from './login/login.component';
+import {AdminComponent} from './admin/admin.component';
 import {AuthGuard} from './auth.guard';
 import {UserService} from './user.service';
-import { LogoutComponent } from './logout/logout.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { RegisterComponent } from './register/register.component';
+import {LogoutComponent} from './logout/logout.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
+import {RegisterComponent} from './register/register.component';
+import {NavbarComponent} from './navbar/navbar.component';
+import {StoreModule} from '@ngrx/store';
+import {reducers} from './store/reducers';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +32,8 @@ import { RegisterComponent } from './register/register.component';
     AdminComponent,
     LogoutComponent,
     DashboardComponent,
-    RegisterComponent
+    RegisterComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +76,8 @@ import { RegisterComponent } from './register/register.component';
         path: 'register',
         component: RegisterComponent
       }
-    ])
+    ]),
+    StoreModule.forRoot(reducers, {})
   ],
   providers: [RecordsService, UserService],
   bootstrap: [AppComponent]
