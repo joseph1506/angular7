@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Store} from '@ngrx/store';
-import {UserState} from './store/reducers/userReducer';
+import {StatesService} from './states.service';
 
 
 interface isLoggedIn {
@@ -18,7 +17,7 @@ interface Response {
 })
 export class UserService {
 
-  constructor(private http: HttpClient, private store: Store<UserState>) {
+  constructor(private http: HttpClient, private states: StatesService) {
   }
 
 
@@ -37,7 +36,11 @@ export class UserService {
   }
 
   getUserLogged() {
-      return this.store.select('userStatusReducer');
+    return this.states.getUserLogged();
+  }
+
+  setLoggedInUserState(user) {
+    this.states.setLoggedInUserState(user);
   }
 
 }
