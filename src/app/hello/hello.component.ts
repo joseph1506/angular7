@@ -7,7 +7,7 @@ import {RecordsService} from '../records.service';
   styleUrls: ['./hello.component.css']
 })
 export class HelloComponent implements OnInit {
-  private employees: {};
+  employees: {};
 
   constructor(private myService: RecordsService) {
   }

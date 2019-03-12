@@ -7,7 +7,7 @@ import {RecordsService} from '../records.service';
   styleUrls: ['./office.component.css']
 })
 export class OfficeComponent implements OnInit {
-  private employees: {};
+  employees: {};
 
   constructor(private myService: RecordsService) { }
 
